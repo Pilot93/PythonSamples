@@ -1,0 +1,15 @@
+from http_log import HttpLog
+from datetime import datetime
+from pytz import timezone
+import threading
+
+if __name__ == '__main__':
+    interval = 5
+    bort_number = 666
+    url = "http://127.0.0.1"
+    web_loger = HttpLog(interval, bort_number, url)
+    def save_log():
+       threading.Timer(1, save_log).start()
+       web_loger.add( 2, "outcome", 5546.254545, 04909.604593)
+
+    save_log()
